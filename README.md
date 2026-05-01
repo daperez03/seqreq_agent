@@ -173,3 +173,11 @@ If you use this repository for academic purposes, please cite the corresponding 
   year={2026}
 }
 ```
+
+---
+
+## Author
+
+Daniel Pérez-Morera
+University of Costa Rica
+CITIC, PCI
