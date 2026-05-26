@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Procedimiento del Investigador</title>
+
+    <style>
+        :root {
+            --primary: #0F3B82;
+            --primary-light: #2A5BAA;
+            --bg-body: #F4F7F6;
+            --bg-card: #FFFFFF;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --border-color: #E2E8F0;
+            --radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 1.9rem;
+            margin-bottom: 8px;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--primary-light);
+            font-size: 1.35rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .metadata-box {
+            background-color: #F8FAFC;
+            border-left: 4px solid var(--primary);
+            padding: 18px;
+            margin-bottom: 30px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .metadata-box p {
+            margin-bottom: 5px;
+            font-size: 0.96rem;
+        }
+
+        .metadata-box strong {
+            color: var(--primary);
+        }
+
+        .quote {
+            background-color: #F1F5F9;
+            font-style: italic;
+            padding: 15px;
+            border-radius: var(--radius);
+            margin: 15px 0;
+            color: #475569;
+        }
+
+        .checkbox-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checkbox-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-list li::before {
+            content: '☐';
+            font-size: 1.2rem;
+            margin-right: 10px;
+            color: var(--primary-light);
+            line-height: 1.2;
+        }
+
+        .highlight {
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            padding: 15px;
+            border-radius: var(--radius);
+            margin: 15px 0;
+        }
+
+        .highlight strong {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 25px;
+            }
+
+            body {
+                padding: 20px 10px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card">
+
+        <h1>Guía de Procedimiento del Investigador</h1>
+
+        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 25px;">
+            Estudio de Agente Virtual para Elicitación de Requerimientos de Seguridad
+        </p>
+
+        <div class="metadata-box">
+            <p><strong>Estudio:</strong> Intelligent Virtual Agent for Security Requirements Elicitation</p>
+            <p><strong>Código del Proyecto:</strong> UCR2027</p>
+            <p><strong>Investigador Principal:</strong> Daniel Pérez Morera</p>
+            <p><strong>Supervisor:</strong> Christian Quesada López</p>
+            <p><strong>Unidad Ejecutora:</strong> Posgrado en Computación e Informática</p>
+            <p><strong>Modalidad:</strong> Grupo experimental con enfoque human-in-the-loop</p>
+        </div>
+
+        <h2>1. Resumen del Estudio</h2>
+
+        <p>
+            Esta guía describe el protocolo experimental para evaluar el uso de un agente
+            virtual inteligente en el proceso de especificación de requerimientos de seguridad.
+            Los participantes interactúan con un agente virtual capaz de generar requerimientos
+            de seguridad derivados de requerimientos funcionales utilizando modelos de lenguaje
+            de gran escala (LLMs).
+        </p>
+
+        <p>
+            Durante la sesión, los participantes podrán revisar, aceptar, rechazar o refinar
+            los requerimientos generados por el sistema, aplicando un enfoque
+            <em>human-in-the-loop</em>.
+        </p>
+
+        <div class="highlight">
+            <strong>Importante:</strong> Esta guía corresponde únicamente a la ejecución
+            del grupo experimental del estudio.
+        </div>
+
+        <h2>2. Preparación Antes de la Sesión</h2>
+
+        <h3>2.1 Checklist de Materiales</h3>
+
+        <ul class="checkbox-list">
+            <li>Copias impresas del consentimiento informado.</li>
+            <li>Computadora configurada con acceso a la plataforma del agente virtual.</li>
+            <li>Conexión estable a Internet.</li>
+            <li>Audífonos con micrófono funcional.</li>
+            <li>Enlace pre-cargado al cuestionario SUS.</li>
+            <li>Lista de participantes y control de asistencia.</li>
+            <li>AMPO o carpeta física para almacenar consentimientos firmados.</li>
+        </ul>
+
+        <h2>3. Recepción e Inducción</h2>
+
+        <h3>3.1 Bienvenida</h3>
+
+        <p><strong>Investigador:</strong></p>
+
+        <div class="quote">
+            "Hola estimado participante, muchas gracias por participar en este estudio.
+            Mi nombre es Daniel Pérez Morera y seré el investigador encargado
+            durante la sesión del día de hoy."
+        </div>
+
+        <h3>3.2 Consentimiento Informado</h3>
+
+        <p><strong>Entrega del consentimiento:</strong></p>
+
+        <div class="quote">
+            "Vamos a leer juntos este consentimiento informado.
+            Su participación es completamente voluntaria y puede retirarse
+            del estudio en cualquier momento sin ninguna consecuencia."
+        </div>
+
+        <p><strong>Después de la lectura:</strong></p>
+
+        <div class="quote">
+            "Después de leer el consentimiento, ¿todavía desea participar del estudio?"
+        </div>
+
+        <p>
+            Si la respuesta es afirmativa:
+        </p>
+
+        <ul>
+            <li>Verificar mayoría de edad mediante documento de identidad.</li>
+            <li>Solicitar firma de ambas copias del consentimiento.</li>
+            <li>Entregar una copia al participante.</li>
+            <li>Registrar el ID del participante en la bitácora.</li>
+        </ul>
+
+        <h3>3.3 Introducción al Estudio</h3>
+
+        <p>
+            Explique brevemente el contexto general del estudio y el objetivo de la sesión.
+        </p>
+
+        <p><strong>Investigador:</strong></p>
+
+        <div class="quote">
+            "En esta sesión usted trabajará con un agente virtual inteligente
+            diseñado para apoyar la identificación y refinamiento de requerimientos
+            de seguridad derivados de requerimientos funcionales de software."
+        </div>
+
+        <div class="quote">
+            "El sistema generará posibles requerimientos de seguridad y usted podrá
+            revisarlos, modificarlos, aceptarlos o rechazarlos según considere apropiado."
+        </div>
+
+        <div class="quote">
+            "No buscamos evaluar sus conocimientos técnicos, sino analizar cómo las
+            personas interactúan con este tipo de herramientas de apoyo."
+        </div>
+
+        <h2>4. Sesión de Laboratorio</h2>
+
+        <h3>4.1 Preparación del Equipo</h3>
+
+        <p>
+            Solicite al participante colocarse los audífonos y realice una prueba rápida
+            de audio para verificar:
+        </p>
+
+        <ul>
+            <li>Funcionamiento correcto del micrófono.</li>
+            <li>Volumen adecuado de salida.</li>
+            <li>Acceso correcto a la plataforma web.</li>
+        </ul>
+
+        <h3>4.2 Instrucciones de la Tarea</h3>
+
+        <p><strong>Investigador:</strong></p>
+
+        <div class="quote">
+            "A continuación, usted utilizará el agente virtual para trabajar en la
+            identificación de requerimientos de seguridad a partir de un conjunto de
+            requerimientos funcionales."
+        </div>
+
+        <div class="quote">
+            "Durante la interacción, el sistema generará propuestas de requerimientos
+            de seguridad que usted podrá revisar, refinar, aceptar o rechazar."
+        </div>
+
+        <div class="quote">
+            "La sesión tiene una duración máxima de una hora. Trate de interactuar
+            con naturalidad y verbalizar cualquier ajuste que considere necesario
+            durante el proceso."
+        </div>
+
+        <div class="quote">
+            "¿Tiene alguna pregunta antes de comenzar?"
+        </div>
+
+        <h3>4.3 Desarrollo de la Sesión</h3>
+
+        <p>
+            El participante interactúa individualmente con el agente virtual utilizando
+            la plataforma web proporcionada.
+        </p>
+
+        <p>
+            Durante la sesión, el investigador debe evitar intervenir directamente
+            en las decisiones del participante, limitándose únicamente a resolver
+            problemas técnicos o dudas operativas relacionadas con la plataforma.
+        </p>
+
+        <p>
+            El participante dispondrá de hasta <strong>60 minutos</strong> para completar
+            la actividad.
+        </p>
+
+        <h2>5. Cuestionario de Satisfacción</h2>
+
+        <h3>5.1 Aplicación del SUS</h3>
+
+        <p>
+            Una vez finalizada la sesión de laboratorio, solicite al participante
+            completar el cuestionario <em>System Usability Scale (SUS)</em>.
+        </p>
+
+        <p><strong>Investigador:</strong></p>
+
+        <div class="quote">
+            "Ahora le solicitaré completar un breve cuestionario de satisfacción
+            relacionado con su experiencia utilizando el agente virtual."
+        </div>
+
+        <p>
+            El participante contará con un máximo de <strong>15 minutos</strong>
+            para completar el cuestionario.
+        </p>
+
+        <h2>6. Cierre de la Sesión</h2>
+
+        <h3>6.1 Despedida</h3>
+
+        <p><strong>Investigador:</strong></p>
+
+        <div class="quote">
+            "Muchas gracias por participar en esta investigación.
+            Su colaboración es muy importante para el desarrollo de herramientas
+            de apoyo en ingeniería de requerimientos y seguridad de software."
+        </div>
+
+        <div class="quote">
+            "¡Que tenga un excelente día!"
+        </div>
+
+        <h2>7. Gestión y Respaldo de Datos</h2>
+
+        <p>
+            Una vez que el participante abandone la sesión:
+        </p>
+
+        <ul>
+            <li>
+                Verifique que los datos generados durante la interacción hayan sido
+                almacenados correctamente.
+            </li>
+
+            <li>
+                Confirme que los requerimientos generados y las respuestas del SUS
+                estén asociados únicamente al ID del participante.
+            </li>
+
+            <li>
+                Asegure la confidencialidad de todos los datos recolectados.
+            </li>
+
+            <li>
+                Limpie y prepare el equipo para la siguiente sesión experimental.
+            </li>
+        </ul>
+
+    </div>
+</div>
+
+</body>
+</html>
