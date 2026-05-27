@@ -1,0 +1,132 @@
+# =========================================
+# Unity Generated Folders
+# =========================================
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# =========================================
+# Unity Generated Files
+# =========================================
+UserSettings/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# =========================================
+# Unity Addressables / Cache
+# =========================================
+[Aa]ssets/[Aa]ddressableAssetsData/*/*.bin*
+[Aa]ssets/StreamingAssets/aa.meta
+[Aa]ssets/StreamingAssets/aa/*
+
+# =========================================
+# Visual Studio / Rider / VSCode
+# =========================================
+.vs/
+.idea/
+.vscode/
+.gradle/
+
+# Rider
+*.sln.iml
+
+# =========================================
+# OS Generated Files
+# =========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================================
+# Crash Reports
+# =========================================
+sysinfo.txt
+
+# =========================================
+# Unity Cloud Diagnostics
+# =========================================
+crashlytics-build.properties
+
+# =========================================
+# Packages
+# =========================================
+# Keep Packages folder except lock file
+!/[Pp]ackages
+/[Pp]ackages/*
+!/[Pp]ackages/manifest.json
+!/[Pp]ackages/packages-lock.json
+
+# =========================================
+# Ignore Auto Generated Visual Studio Files
+# =========================================
+ExportedObj/
+.consulo/
+*.apk
+*.aab
+*.unitypackage
+
+# =========================================
+# Burst / IL2CPP
+# =========================================
+[Bb]urstDebugInformation_DoNotShip/
+il2cppOutput/
+
+# =========================================
+# JetBrains
+# =========================================
+.idea/
+
+# =========================================
+# Python / AI / Virtual Environments
+# =========================================
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# =========================================
+# OpenAI / Whisper / Local AI Models
+# =========================================
+models/
+checkpoints/
+*.onnx
+*.pt
+*.pth
+*.gguf
+
+# =========================================
+# Audio Recordings
+# =========================================
+*.wav
+*.mp3
+*.ogg
+
+# =========================================
+# Logs
+# =========================================
+*.log
+
+# =========================================
+# Keep Important Unity Folders
+# =========================================
+!/[Aa]ssets/
+!/[Pp]rojectSettings/
+!/[Pp]ackages/
