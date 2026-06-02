@@ -1,164 +1,203 @@
 # Intelligent Virtual Agent for Security Requirements Elicitation
 
-This repository contains the source code of the intelligent virtual agent proposed in the paper:
+![Agent1](./imgs/Agent1.png)
+![Agent2](./imgs/Agent2.png)
 
-**“An Intelligent Agent with a Human-in-the-Loop Approach to Support the Specification of Software Safety Requirements: A Pilot Study”**
+This repository contains the source code of an intelligent virtual agent designed to support the elicitation and specification of software security requirements from functional requirements.
 
-The project explores the use of an embodied virtual agent to support the elicitation and specification of software security requirements derived from functional requirements.
+The project combines Large Language Models (LLMs), speech technologies, and an embodied conversational agent to assist users in applying the security requirements derivation strategy proposed by Riaz et al. (2014).
 
-The agent combines Large Language Models (LLMs), Speech-to-Text (STT), Text-to-Speech (TTS), and a Human-in-the-Loop (HITL) interaction process to improve the relevance and usability of generated security requirements.
+The system was developed as part of a pilot study evaluating the feasibility of using virtual agents to support software security requirements engineering tasks.
 
 ---
 
 ## Objective
 
-The main objective of this project is to assist business users and technical professionals with limited security expertise in identifying and refining software security requirements.
+The primary objective of this project is to assist software engineers, analysts, students, and business stakeholders in deriving security requirements from functional requirements.
 
-Instead of relying on a fully automated LLM process, the system introduces a virtual embodied agent that allows users to:
+Unlike fully automated approaches, the proposed solution introduces an embodied virtual agent capable of interacting with users through voice conversations. The agent guides users during the identification of security objectives, security patterns, and security requirements while maintaining human participation throughout the process.
 
-* submit functional requirements
-* receive automatically generated security requirements
-* review generated requirements
-* reject irrelevant requirements
-* refine and validate results
-* improve final requirement quality through human supervision
+The system aims to:
 
-This hybrid approach seeks to improve requirement relevance while maintaining strong coverage.
+* Support the identification of software security requirements.
+* Reduce the effort required to apply security requirement derivation techniques.
+* Improve the accessibility of security engineering practices for non-experts.
+* Provide a natural and engaging interaction through an embodied virtual agent.
 
 ---
 
 ## System Architecture
 
-The solution was developed using **Unity 2D** and deployed as a browser-based application to maximize accessibility.
+The system was developed using Unity and integrates speech technologies, large language models, and a Model Context Protocol (MCP) server specialized in security requirements engineering.
 
 ### Main Components
 
 ### 1. Virtual Agent (Unity)
 
-The embodied avatar provides the user interface and conversational interaction.
+The virtual agent provides a 3D embodied interface through which users interact with the system.
 
 Responsibilities:
 
-* visual interaction with the user
-* voice-based communication
-* presentation of generated requirements
-* support during requirement refinement
+* Conversational interaction with users.
+* Audio playback and avatar animation.
+* User input management.
+* Lip synchronization during speech generation.
+* Integration with AI services.
 
 ---
 
 ### 2. Speech-to-Text (STT)
 
-Used to convert user speech into text for real-time interaction.
+The system uses OpenAI's speech recognition services to convert user speech into text.
 
-Implementation used:
+Implementation:
 
-* OpenAI Whisper API
+* gpt-4o-mini-transcribe
 
-Why:
+Features:
 
-* high transcription accuracy
-* low latency
-* strong multilingual support
-* robust performance in real-world conditions
+* Real-time speech transcription.
+* Multilingual support.
+* High transcription accuracy.
 
 ---
 
 ### 3. Text-to-Speech (TTS)
 
-Used to generate natural voice responses from the virtual agent.
+The virtual agent generates spoken responses using OpenAI's text-to-speech service.
 
-Implementation used:
+Implementation:
 
-* ElevenLabs API
+* gpt-4o-mini-tts
+* Voice: Alloy
 
-Why:
+Features:
 
-* high-quality natural voices
-* customizable voice generation
-* fast response time
-* improved conversational realism
+* Natural voice generation.
+* Low latency responses.
+* Seamless integration with avatar lip synchronization.
 
 ---
 
-### 4. Security Requirements Elicitation Model
+### 4. LLM Orchestrator
 
-This module receives functional requirements and generates corresponding security requirements based on:
+The conversational intelligence of the agent is managed by Claude Haiku 4.5.
 
-* security objectives
-* security templates
-* security patterns
-* previous studies by Riaz et al.
-* replication studies using LLMs
+Implementation:
 
-Security objectives considered:
+* ClaudeHaiku4_5_20251001
 
-* Confidentiality (C)
-* Integrity (I)
-* Availability (A)
-* Identification & Authentication (ID)
-* Accountability (AY)
-* Privacy (PR)
+Responsibilities:
+
+* Understanding user requests.
+* Managing conversations.
+* Deciding when to invoke external tools.
+* Generating explanations and recommendations.
+
+---
+
+### 5. Req2Seq MCP Server
+
+The system incorporates a specialized MCP server called Req2Seq.
+
+Req2Seq provides domain-specific knowledge for security requirements engineering and assists the LLM in applying the methodology proposed by Riaz et al. (2014).
+
+Capabilities:
+
+* Identification of security objectives.
+* Selection of security patterns.
+* Generation of security requirements.
+* Traceability between functional and security requirements.
+
+Security objectives supported include:
+
+* Confidentiality
+* Integrity
+* Availability
+* Identification and Authentication
+* Accountability
+* Privacy
 
 ---
 
 ## Interaction Flow
 
 ```mermaid
-sequenceDiagram 
-actor User 
-actor Agent 
-User->>+Agent: Functional Requirments 
-Agent->>+Elicitation Model:Functional Requirments Elicitation 
-Model->>+Agent: Security Requirments 
-Agent->>+User: Security Requirments 
-User->>+Agent: Reject security requirements
+sequenceDiagram
+    actor U as Usuario
+    participant Avatar
+    participant STT
+    participant Claude
+    participant MCP as Req2Seq
+    participant TTS
+
+    U->>Avatar: Hablar
+    Avatar->>STT: Audio
+    STT-->>Avatar: Texto
+
+    Avatar->>Claude: Prompt
+    Claude->>MCP: Consulta
+    MCP-->>Claude: Resultado
+
+    Claude-->>Avatar: Texto
+
+    Avatar->>TTS: TTS
+    TTS-->>Avatar: Audio
+
+    Avatar-->>U: Voz
 ```
 
 ---
 
 ## Experimental Context
 
-This system was evaluated in a pilot study with 20 graduate students from the University of Costa Rica.
+The system is being evaluated through a pilot study involving graduate students from the University of Costa Rica.
 
-Two conditions were compared:
+Participants interact with the virtual agent to derive security requirements from functional requirements while applying the strategy proposed by Riaz et al. (2014).
 
-### Control Group
+The study evaluates four main metrics:
 
-Security requirements generated by the LLM without human intervention.
+* Coverage (Recall)
+* Relevance (Precision)
+* Efficiency (True Positives per Minute)
+* User Satisfaction (System Usability Scale - SUS)
 
-### Experimental Group
-
-Security requirements generated with user interaction through the intelligent virtual agent.
-
-Evaluation metrics:
-
-* Coverage → Recall
-* Relevance → Precision
-* Satisfaction → System Usability Scale (SUS)
+The results obtained with the virtual agent are compared against previously reported results from automated LLM-based security requirements generation approaches.
 
 ---
 
-## Technologies
+## Technology Stack
 
-Technology stack used:
-
-* Unity 2D
+* Unity 3D
 * C#
-* OpenAI Whisper API
-* ElevenLabs API
-* LLM backend for requirement generation
-* Web deployment (WebGL)
-* REST API integration
+* OpenAI API
+
+  * gpt-4o-mini-transcribe
+  * gpt-4o-mini-tts
+* Anthropic Claude Haiku 4.5
+* Model Context Protocol (MCP)
+* Req2Seq MCP Server
+* WebGL Deployment
+* REST APIs
 
 ---
 
 ## Repository Structure
 
 ```text
+backend/
 docs/
 frontend/
-backend/
+imgs/
 ```
+
+---
+
+## Demo
+
+Watch a demonstration of the intelligent virtual agent in action:
+
+[Demo on YouTube](https://youtu.be/gtVa7U5jx_o)
 
 ---
 
@@ -178,6 +217,6 @@ If you use this repository for academic purposes, please cite the corresponding 
 
 ## Author
 
-Daniel Pérez-Morera
-University of Costa Rica
+Daniel Pérez-Morera  
+University of Costa Rica  
 CITIC, PCI
