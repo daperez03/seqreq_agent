@@ -17,7 +17,7 @@ This guide explains how to prepare and run the Unity project for the first time.
 3. Select the current project folder and add it to Unity Hub.
 4. Open the project using Unity Editor version `6000.3.11f1`.
 
-![Project added](imgs\project_added.png)
+![Project added](imgs/project_added.png)
 
 ## 2. Configure the Scene Managers
 
@@ -27,7 +27,7 @@ This guide explains how to prepare and run the Unity project for the first time.
 4. Fill in the API key fields for OpenAI and Anthropic in the Inspector.
 5. Set the MCP server URL that the agent will use.
 
-![Managers object](imgs\managers_object.png)
+![Managers object](imgs/managers_object.png)
 
 ## 3. Start the MCP Server
 
@@ -47,9 +47,9 @@ python .\src\mcp_server.py
 
 If you need public access to the server, you can expose it with Cloudflare Tunnel as described in the backend README, then use the generated `/mcp` URL in Unity.
 
-![MCP server](imgs\MCP_server.png)
+![MCP server](imgs/MCP_server.png)
 
-![Cloudflare Tunnel](imgs\Cloudflare_Tunnel.png)
+![Cloudflare Tunnel](imgs/Cloudflare_Tunnel.png)
 
 ## 4. Run the Project
 
@@ -59,7 +59,7 @@ If you need public access to the server, you can expose it with Cloudflare Tunne
 4. Speak your request after pressing Space.
 5. Wait for the agent response.
 
-![Agent](imgs\Agent1.png)
+![Agent](imgs/Agent1.png)
 
 ## Notes
 
