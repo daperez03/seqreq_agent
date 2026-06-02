@@ -124,27 +124,27 @@ Security objectives supported include:
 
 ```mermaid
 sequenceDiagram
-    actor U as Usuario
+    actor U as User
     participant Avatar
-    participant STT
+    participant STT as Speech-to-Text
     participant Claude
     participant MCP as Req2Seq
-    participant TTS
+    participant TTS as Text-to-Speech
 
-    U->>Avatar: Hablar
+    U->>Avatar: Speak
     Avatar->>STT: Audio
-    STT-->>Avatar: Texto
+    STT-->>Avatar: Text
 
     Avatar->>Claude: Prompt
-    Claude->>MCP: Consulta
-    MCP-->>Claude: Resultado
+    Claude->>MCP: Query
+    MCP-->>Claude: Result
 
-    Claude-->>Avatar: Texto
+    Claude-->>Avatar: Text
 
-    Avatar->>TTS: TTS
+    Avatar->>TTS: Text for Synthesis
     TTS-->>Avatar: Audio
 
-    Avatar-->>U: Voz
+    Avatar-->>U: Voice Response
 ```
 
 ---
