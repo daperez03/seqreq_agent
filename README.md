@@ -11,6 +11,12 @@ The system was developed as part of a pilot study evaluating the feasibility of 
 
 ---
 
+## Setup
+
+To configure and run the project for the first time, follow the detailed setup guide in [Setup.md](Setup.md).
+
+---
+
 ## Objective
 
 The primary objective of this project is to assist software engineers, analysts, students, and business stakeholders in deriving security requirements from functional requirements.
