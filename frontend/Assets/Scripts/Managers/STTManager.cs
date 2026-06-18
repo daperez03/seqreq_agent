@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class STT_Manager : MonoBehaviour
+public class STTManager : MonoBehaviour
 {
     private AudioClip clip;
 
@@ -56,7 +56,7 @@ public class STT_Manager : MonoBehaviour
     {
         if (isRecording)
             return;
-
+        ActionManager.PlayAction(AvatarAction.Head_Nod_Yes);
         clip = Microphone.Start(
             device,
             false,
@@ -73,6 +73,8 @@ public class STT_Manager : MonoBehaviour
     {
         if (!isRecording)
             return;
+
+        ActionManager.PlayAction(AvatarAction.Acknowleding);
 
         int position = Microphone.GetPosition(device);
 

@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text.Json;
 using UnityEngine;
 
-public class Agent_Manager : MonoBehaviour
+public class AgentManager : MonoBehaviour
 {
     [SerializeField]
-    string MPC_SERVER_URL;
+    string MCP_SERVER_URL;
     [SerializeField]
     public string apiKey;
     AnthropicClient client;
     List<BetaMessageParam> messages = new();
-    TTS_Manager ttsManager;
+    TTSManager ttsManager;
 
     public void Start()
     {
@@ -23,8 +23,8 @@ public class Agent_Manager : MonoBehaviour
         {
             ApiKey = apiKey,
         };
-        ttsManager = this.gameObject.GetComponent<TTS_Manager>();
-        STT_Manager.OnUserSpoke += UserRequest;
+        ttsManager = this.gameObject.GetComponent<TTSManager>();
+        STTManager.OnUserSpoke += UserRequest;
     }
 
     public async void UserRequest(string request)
@@ -41,7 +41,7 @@ public class Agent_Manager : MonoBehaviour
             {
                 new()
                 {
-                    Url = MPC_SERVER_URL,
+                    Url = MCP_SERVER_URL,
                     Name = "Req2Seq",
                 }
             },
@@ -54,10 +54,11 @@ public class Agent_Manager : MonoBehaviour
                 AnthropicBeta.McpClient2025_11_20
             }
         };
+        ActionManager.PlayAction(AvatarAction.Acknowleding);
         var result = await client.Beta.Messages.Create(parameters);
         var message = JsonSerializer.Deserialize<Dictionary<string, string>>(
             result.Content.Last().Value.ToString())["text"];
-        this.messages.Add(new BetaMessageParam { Role = Role.Assistant, Content = message });
+        this.messages.Add(new BetaMessageParam { Role = Role.Assistant, Content = message });        
         ttsManager.Speak(message);
     }
 }

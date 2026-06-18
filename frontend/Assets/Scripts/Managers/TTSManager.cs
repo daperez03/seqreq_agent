@@ -13,7 +13,7 @@ public class TTSRequest
     public string voice;
 }
 
-public class TTS_Manager : MonoBehaviour
+public class TTSManager : MonoBehaviour
 {
     [Header("OpenAI")]
     public string apiKey;
@@ -63,6 +63,7 @@ public class TTS_Manager : MonoBehaviour
             "Bearer " + apiKey
         );
 
+        ActionManager.PlayAction(AvatarAction.Acknowleding);
         yield return request.SendWebRequest();
 
         if (request.result != UnityWebRequest.Result.Success)
@@ -117,6 +118,13 @@ public class TTS_Manager : MonoBehaviour
 
         audioSource.clip = clip;
 
+        ActionManager.PlayAction(AvatarAction.Talking);
         audioSource.Play();
+
+        yield return new WaitUntil(
+            () => !audioSource.isPlaying
+        );
+
+        ActionManager.PlayAction(AvatarAction.Idle);
     }
 }
