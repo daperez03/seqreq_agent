@@ -127,4 +127,13 @@ public class TTSManager : MonoBehaviour
 
         ActionManager.PlayAction(AvatarAction.Idle);
     }
+
+    public void StopSpeaking()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+            ActionManager.PlayAction(AvatarAction.Idle);
+        }
+    }
 }

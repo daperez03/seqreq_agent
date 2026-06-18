@@ -18,7 +18,9 @@ public class STTManager : MonoBehaviour
     private string micPath;
 
     public static event Action<string> OnUserSpoke;
-    
+
+    private TTSManager ttsManager;
+
     [System.Serializable]
     public class WhisperResponse
     {
@@ -35,6 +37,8 @@ public class STTManager : MonoBehaviour
         );
 
         Debug.Log("Mic listo");
+
+        ttsManager = this.gameObject.GetComponent<TTSManager>();
     }
 
     void Update()
@@ -57,6 +61,7 @@ public class STTManager : MonoBehaviour
         if (isRecording)
             return;
         ActionManager.PlayAction(AvatarAction.Head_Nod_Yes);
+        ttsManager.StopSpeaking();
         clip = Microphone.Start(
             device,
             false,
