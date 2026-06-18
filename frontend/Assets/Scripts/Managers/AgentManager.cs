@@ -52,7 +52,9 @@ public class AgentManager : MonoBehaviour
             Betas = new List<ApiEnum<string, AnthropicBeta>>
             {
                 AnthropicBeta.McpClient2025_11_20
-            }
+            },
+            System = new MessageCreateParamsSystem(Constants.SYSTEM_PROMPT)
+
         };
         ActionManager.PlayAction(AvatarAction.Acknowleding);
         var result = await client.Beta.Messages.Create(parameters);

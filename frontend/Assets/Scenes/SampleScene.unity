@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff38cf0299fb9242a4cd76160193e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Script::Agent_Manager
-  MCP_SERVER_URL: https://rendered-quarters-warcraft-eng.trycloudflare.com/mcp
+  MCP_SERVER_URL: 
   apiKey: 
 --- !u!114 &196130694
 MonoBehaviour:
