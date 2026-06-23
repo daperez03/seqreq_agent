@@ -1,7 +1,6 @@
 # Intelligent Virtual Agent for Security Requirements Elicitation
 
-![Agent1](./imgs/Agent1.png)
-![Agent2](./imgs/Agent2.png)
+![Agent](./imgs/Agent.png)
 
 This repository contains the source code of an intelligent virtual agent designed to support the elicitation and specification of software security requirements from functional requirements.
 
@@ -203,7 +202,19 @@ imgs/
 
 Watch a demonstration of the intelligent virtual agent in action:
 
-[Demo on YouTube](https://youtu.be/gtVa7U5jx_o)
+[Demo on YouTube](https://youtu.be/oQdS7Oj8X_w)
+
+---
+
+Sí, puedes agregarlo como referencia directa al documento dentro del repositorio. Te dejo una forma limpia de incluirlo en la sección **Citation** (sin usar links markdown):
+
+Puedes añadir esto justo antes o después del BibTeX:
+
+---
+
+## Paper
+
+The full paper associated with this project is available [here](docs/An_intelligent_agent_with_a_human_in_the_loop_approach_to_support_the_specification_of_software_safety_requirements.pdf).
 
 ---
 
@@ -213,7 +224,7 @@ If you use this repository for academic purposes, please cite the corresponding 
 
 ```bibtex
 @inproceedings{PerezMorera2026,
-  title={An Intelligent Agent with a Human-in-the-Loop Approach to Support the Specification of Software Safety Requirements: A Pilot Study},
+  title={An intelligent agent with a human-in-the-loop approach to support the specification of software safety requirements: A work in progress},
   author={Pérez-Morera, Daniel},
   year={2026}
 }
