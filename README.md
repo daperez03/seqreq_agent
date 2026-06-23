@@ -206,12 +206,6 @@ Watch a demonstration of the intelligent virtual agent in action:
 
 ---
 
-Sí, puedes agregarlo como referencia directa al documento dentro del repositorio. Te dejo una forma limpia de incluirlo en la sección **Citation** (sin usar links markdown):
-
-Puedes añadir esto justo antes o después del BibTeX:
-
----
-
 ## Paper
 
 The full paper associated with this project is available [here](docs/An_intelligent_agent_with_a_human_in_the_loop_approach_to_support_the_specification_of_software_safety_requirements.pdf).
